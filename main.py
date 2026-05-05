@@ -3,6 +3,7 @@ import numpy as np
 import pickle
 
 from skimage.io import imread
+from skimage.color import rgb2gray
 from skimage.transform import resize
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
@@ -23,6 +24,10 @@ for category_idx, category in enumerate(categories):
 
         img_path = os.path.join(input_dir, category, file)
         img = imread(img_path)
+
+        if len(img.shape) == 3:
+            img = rgb2gray(img)
+
         img = resize(img, (128, 128))
         data.append(img.flatten())
         labels.append(category_idx)
