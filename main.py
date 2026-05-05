@@ -1,6 +1,5 @@
 import os
 import numpy as np
-import pickle
 
 from skimage.io import imread
 from skimage.color import rgb2gray
@@ -57,5 +56,3 @@ y_prediction = best_estimator.predict(x_test)
 score = accuracy_score(y_prediction, y_test)
 
 print('{}% of samples predicted correct'.format(str(score * 100)))
-
-pickle.dump(best_estimator, open('./model.p', 'wb'))
