@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score
 #Prepare Data
 
 input_dir = './data'
-categories = ['root_canal', 'no_root_canal']
+categories = ['infected', 'healthy']
 
 data = []
 labels = []
